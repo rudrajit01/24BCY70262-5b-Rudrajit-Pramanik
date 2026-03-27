@@ -1,0 +1,232 @@
+/* Base */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Main container */
+main {
+  flex: 1;
+}
+
+/* Cards */
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Table styling */
+.table {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+}
+.table thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+.table th, .table td {
+  vertical-align: middle;
+}
+.table-hover tbody tr:hover {
+  background-color: #f8f9ff;
+  transition: background-color 0.2s;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin: 0 2px;
+  transition: all 0.3s;
+}
+.btn-sm {
+  padding: 4px 05px;
+}
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 07px rgba(0,0,0,0.2);
+}
+.btn-warning {
+  background: #ffc107;
+  border: none;
+}
+.btn-danger {
+  background: #dc3545;
+  border: none;
+}
+.btn-info {
+  background: #17a2b8;
+  border: none;
+}
+
+/* Form styling */
+form {
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow:0  10px 10px rgba(0,0,0,0.1);
+}
+.form-control {
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  padding: 10px;
+}
+.form-control:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 0.2rem rgba(102,126,234,0.25);
+}
+
+/* Hero section */
+.hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.hero h1 {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+  margin-top: auto;
+  background: #2c3e50 !important;
+}
+
+/* Animation for main content */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+main {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Spark effect */
+.spark {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  border-radius: 10%;
+  background: radial-gradient(circle, #ffaa33, #ff6600);
+  box-shadow: 0 0 5px #ffaa33, 0 0 8px #ff6600;
+  pointer-events: none;
+  z-index: 10000;
+  opacity: 1;
+  will-change: transform, opacity;
+  animation: fadeOut 0.6s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+/* বাটনের ভেতরের আইকনের সাইজ ছোট করা */
+.btn i,
+.btn .fas,
+.btn .far {
+  font-size: 0.9em;
+  margin-right: 4px;
+}
+/* অ্যাকশন কলামের জন্য রেস্পন্সিভ */
+@media (min-width: 767px) {
+  .btn-group-small {
+    display: none;
+  }
+  .btn-group-large {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 767px) {
+  .btn-group-large {
+    display: none;
+  }
+  .btn-group-small {
+    display: inline-block;
+  }
+  .actions-cell {
+    text-align: center;
+  }
+}
+/* অ্যাকশন বাটনগুলো আরও ছোট */
+.btn-xs {
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+.btn-xs i {
+  font-size: 0.75rem;
+  margin-right: 2px;
+}
+
+/* ছোট স্ক্রিনে বাটনগুলো আরও ছোট */
+@media (max-width: 576px) {
+  .btn-xs {
+    padding: 0.15rem 0.4rem;
+    font-size: 0.7rem;
+  }
+  .btn-xs i {
+    font-size: 0.7rem;
+  }
+}
+/* বাটন ছোট করার কাস্টম স্টাইল */
+.btn-sm {
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  border-radius: 0.3rem;
+}
+.btn-sm i {
+  font-size: 0.7rem;
+  margin-right: 3px;
+}
+
+/* ছোট স্ক্রিনে আরও ছোট */
+@media (max-width: 576px) {
+  .btn-sm {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.7rem;
+  }
+  .btn-sm i {
+    font-size: 0.65rem;
+  }
+}

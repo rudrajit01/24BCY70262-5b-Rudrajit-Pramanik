@@ -1,0 +1,35 @@
+<%- include('partials/header') %>
+
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-body text-center">
+        <% if (student) { %>
+          <i class="fas fa-user-circle fa-5x mb-3 text-primary"></i>
+          <h2 class="card-title"><%= student.name %></h2>
+          <hr>
+          <div class="row text-start">
+            <div class="col-md-6">
+              <p><strong><i class="fas fa-calendar-alt"></i> Age:</strong> <%= student.age %></p>
+            </div>
+            <div class="col-md-6">
+              <p><strong><i class="fas fa-envelope"></i> Email:</strong> <%= student.email %></p>
+            </div>
+            <div class="col-md-12">
+              <p><strong><i class="fas fa-book"></i> Course:</strong> <%= student.course %></p>
+            </div>
+          </div>
+          <div class="mt-4">
+            <a href="/<%= student._id %>/edit" class="btn btn-warning"><i class="fas fa-edit"></i> Edit</a>
+            <a href="/" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back to List</a>
+          </div>
+        <% } else { %>
+          <div class="alert alert-danger">Student not found.</div>
+          <a href="/" class="btn btn-secondary">Back to List</a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

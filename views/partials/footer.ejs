@@ -1,0 +1,67 @@
+<script>
+  // ----- কাস্টম কার্সার -----
+  const cursor = document.createElement('div');
+  cursor.classList.add('custom-cursor');
+  document.body.appendChild(cursor);
+
+  const trail = document.createElement('div');
+  trail.classList.add('cursor-trail');
+  document.body.appendChild(trail);
+
+  let mouseX = 0, mouseY = 0;
+  let trailX = 0, trailY = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursor.style.left = mouseX + 'px';
+    cursor.style.top = mouseY + 'px';
+    
+    trail.style.left = mouseX + 'px';
+    trail.style.top = mouseY + 'px';
+    trail.style.opacity = '1';
+    setTimeout(() => { trail.style.opacity = '0'; }, 100);
+    
+    // স্পার্ক ইফেক্ট: এলোমেলো সংখ্যক স্পার্ক তৈরি
+    createSparks(mouseX, mouseY);
+  });
+
+  function animateTrail() {
+    trailX += (mouseX - trailX) * 0.2;
+    trailY += (mouseY - trailY) * 0.2;
+    trail.style.left = trailX + 'px';
+    trail.style.top = trailY + 'px';
+    requestAnimationFrame(animateTrail);
+  }
+  animateTrail();
+
+  // ----- স্পার্ক জেনারেটর -----
+  function createSparks(x, y) {
+    const sparkCount = Math.floor(Math.random() * 5) + 3; // প্রতি মুভে ৩-৭টি স্পার্ক
+    for (let i = 0; i < sparkCount; i++) {
+      const spark = document.createElement('div');
+      spark.classList.add('spark');
+      
+      // এলোমেলো দিক ও দূরত্ব
+      const angle = Math.random() * Math.PI * 2;
+      const distance = Math.random() * 20 + 5; // 5-25px
+      const dx = Math.cos(angle) * distance;
+      const dy = Math.sin(angle) * distance;
+      
+      spark.style.left = (x + dx) + 'px';
+      spark.style.top = (y + dy) + 'px';
+      
+      // এলোমেলো সাইজ
+      const size = Math.random() * 4 + 2;
+      spark.style.width = size + 'px';
+      spark.style.height = size + 'px';
+      
+      document.body.appendChild(spark);
+      
+      // ৬০০ms পর স্পার্ক মুছে ফেলুন
+      setTimeout(() => {
+        spark.remove();
+      }, 600);
+    }
+  }
+</script>
